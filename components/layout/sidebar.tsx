@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 
 interface User {
-  name?: string;
+  name?: string | null;
   email?: string;
 }
 interface SidebarProps {

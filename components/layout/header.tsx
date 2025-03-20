@@ -26,7 +26,6 @@ export function Header({ user }: HeaderProps) {
   const pathname = usePathname();
 
   const isAdmin = user?.role === "ADMIN" || user?.role === "SUPERADMIN";
-  const isSuperAdmin = user?.role === "SUPERADMIN";
 
   const navigation = [
     { name: "Dashboard", href: "/" },
