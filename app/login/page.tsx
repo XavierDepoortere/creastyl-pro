@@ -82,6 +82,7 @@ export default function LoginPage() {
       });
 
       if (result?.error) {
+        console.error("Error logging in:", result.error);
         setError("Email ou mot de passe invalide");
         return;
       }
@@ -89,6 +90,7 @@ export default function LoginPage() {
       router.push("/");
       router.refresh();
     } catch (error) {
+      console.error("Error logging in:", error);
       setError("Une erreur s'est produite. Veuillez réessayer.");
     } finally {
       setIsLoading(false);

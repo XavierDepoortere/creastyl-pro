@@ -91,6 +91,7 @@ export default function RegisterPage() {
         form.setValue("email", data.email);
         setIsValidating(false);
       } catch (error) {
+        console.error(error);
         setError("Failed to validate invitation token");
         setIsValidating(false);
       }
@@ -233,6 +234,7 @@ export default function RegisterPage() {
                     <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
+                        {...field}
                         value={invitationEmail || ""}
                         disabled
                         className="bg-muted"
