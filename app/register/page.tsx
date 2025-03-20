@@ -67,7 +67,7 @@ export default function RegisterPage() {
       confirmPassword: "",
     },
   });
-
+  console.log(invitationRole);
   useEffect(() => {
     if (!token) {
       setError("No invitation token provided");
@@ -133,6 +133,7 @@ export default function RegisterPage() {
         router.push("/login");
       }, 2000);
     } catch (error) {
+      console.log(error);
       setError("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);

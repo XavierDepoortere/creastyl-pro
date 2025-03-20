@@ -43,7 +43,6 @@ const invitationSchema = z.object({
 type InvitationFormValues = z.infer<typeof invitationSchema>;
 
 export default function InvitationsPage() {
-  const router = useRouter();
   const { toast } = useToast();
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
@@ -256,15 +255,15 @@ export default function InvitationsPage() {
                           invitation.used
                             ? "bg-green-100 text-green-800"
                             : invitation.expires < new Date().toISOString()
-                            ? "bg-red-100 text-red-800"
-                            : "bg-blue-100 text-blue-800"
+                              ? "bg-red-100 text-red-800"
+                              : "bg-blue-100 text-blue-800"
                         }`}
                       >
                         {invitation.used
                           ? "Used"
                           : invitation.expires < new Date().toISOString()
-                          ? "Expired"
-                          : "Pending"}
+                            ? "Expired"
+                            : "Pending"}
                       </div>
                     </div>
                     <div className="mt-2 text-xs text-muted-foreground">

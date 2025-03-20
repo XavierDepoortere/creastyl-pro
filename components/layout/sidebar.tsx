@@ -2,21 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  Menu,
-  Users,
-  Settings,
-  Home,
-  LogOut,
-  Info,
-  Caravan,
-} from "lucide-react";
+import { Menu, Settings, Home, LogOut, Info, Caravan } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 
+interface User {
+  name?: string;
+  email?: string;
+}
 interface SidebarProps {
-  user: any;
+  user: User;
 }
 
 export function Sidebar({ user }: SidebarProps) {
@@ -29,7 +25,6 @@ export function Sidebar({ user }: SidebarProps) {
 
   const navigation = [
     { name: "Dashboard", href: "/", icon: Home },
-    { name: "Utilisateurs", href: "/admin/users", icon: Users },
     { name: "Paramètres", href: "/settings", icon: Settings },
     { name: "Congés", href: "/holiday", icon: Caravan },
   ];

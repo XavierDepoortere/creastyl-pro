@@ -2,9 +2,6 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "../src/lib/auth";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Header } from "../components/layout/header";
-import { Sidebar } from "../components/layout/sidebar";
-import { DeviceDetector } from "../components/layout/DeviceDetector";
 
 export default async function Home() {
   const user = await getCurrentUser();
