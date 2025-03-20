@@ -15,14 +15,12 @@ export default async function Home() {
       <div className="container mx-auto py-10">
         <div className="flex flex-col items-center justify-center space-y-6 text-center">
           <h1 className="text-3xl font-bold tracking-tight">
-            Bienvenue dans le système d'administration
+            Bienvenue dans le système dadministration
           </h1>
 
           {(user.role === "ADMIN" || user.role === "SUPERADMIN") && (
             <div className="flex flex-col gap-4 mt-4">
-              <h2 className="text-xl font-semibold">
-                Actions d'administration
-              </h2>
+              <h2 className="text-xl font-semibold">Actions dadministration</h2>
               <div className="flex gap-4 justify-center">
                 <Button asChild>
                   <Link href="/admin/invitations">Gérer les invitations</Link>

@@ -38,7 +38,18 @@ const invitationSchema = z.object({
     required_error: "Please select a role",
   }),
 });
-
+type Invitation = {
+  id: string;
+  email: string;
+  role: "USER" | "ADMIN";
+  used: boolean;
+  expires: string; // Stocké sous forme de date ISO (string)
+  createdAt: string; // Date d'envoi de l'invitation
+  sender: {
+    name?: string;
+    email: string;
+  };
+};
 type InvitationFormValues = z.infer<typeof invitationSchema>;
 
 export default function InvitationsPage() {
@@ -46,7 +57,7 @@ export default function InvitationsPage() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [invitations, setInvitations] = useState<any[]>([]);
+  const [invitations, setInvitations] = useState<Invitation[]>([]);
   const [isLoadingInvitations, setIsLoadingInvitations] = useState(false);
 
   const form = useForm<InvitationFormValues>({
@@ -121,7 +132,7 @@ export default function InvitationsPage() {
   // Load invitations on component mount
   useEffect(() => {
     fetchInvitations();
-  }, []);
+  }, [fetchInvitations()]);
 
   return (
     <div className="grid gap-6">
@@ -215,7 +226,7 @@ export default function InvitationsPage() {
                   )}
                 />
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? "Envoi..." : "Envoyer l'invitation"}
+                  {isLoading ? "Envoi..." : "Envoyer l invitation"}
                 </Button>
               </form>
             </Form>
@@ -237,7 +248,7 @@ export default function InvitationsPage() {
             ) : invitations.length === 0 ? (
               <div className="text-center py-6 text-muted-foreground">
                 <Mail className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-2">Aucune invitation envoyée pour l'instant</p>
+                <p className="mt-2">Aucune invitation envoyée pour l instant</p>
               </div>
             ) : (
               <div className="space-y-4">

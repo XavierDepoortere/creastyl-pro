@@ -30,11 +30,14 @@ export default async function RootLayout({
           <div className="flex min-h-screen flex-col md:flex-row">
             <DeviceDetector
               mobileComponent={
-                <>
-                  <Sidebar user={user} /> <FooterBar />
-                </>
+                user ? (
+                  <>
+                    <Sidebar user={user} />
+                    <FooterBar />
+                  </>
+                ) : null
               }
-              desktopComponent={<Header user={user} />}
+              desktopComponent={user ? <Header user={user} /> : null}
             />
             <main className="flex-1 p-4">{children}</main>
           </div>

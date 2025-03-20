@@ -94,7 +94,7 @@ export default function SetupPage() {
       }, 2000);
     } catch (error) {
       console.log(error);
-      setError("Une erreur s'est produite. Veuillez réessayer.");
+      setError("Une erreur s est produite. Veuillez réessayer.");
     } finally {
       setIsLoading(false);
     }
@@ -193,7 +193,7 @@ export default function SetupPage() {
               />
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading
-                  ? "Création d'un compte..."
+                  ? "Création d un compte..."
                   : "Créer un compte super-administrateur"}
               </Button>
             </form>
@@ -201,8 +201,8 @@ export default function SetupPage() {
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-sm text-muted-foreground">
-            Cette page de configuration n'est disponible que lorsqu'aucun
-            superadministrateur n'existe.
+            Cette page de configuration nest disponible que lorsquaucun
+            superadministrateur nexiste.
           </p>
         </CardFooter>
       </Card>

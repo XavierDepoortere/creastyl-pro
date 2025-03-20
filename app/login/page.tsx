@@ -91,7 +91,7 @@ export default function LoginPage() {
       router.refresh();
     } catch (error) {
       console.error("Error logging in:", error);
-      setError("Une erreur s'est produite. Veuillez réessayer.");
+      setError("Une erreur s est produite. Veuillez réessayer.");
     } finally {
       setIsLoading(false);
     }
@@ -157,7 +157,7 @@ export default function LoginPage() {
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-sm text-muted-foreground">
-            Vous n'avez pas de compte ? Vous avez besoin d'une invitation pour
+            Vous n avez pas de compte ? Vous avez besoin d une invitation pour
             vous inscrire.
           </p>
         </CardFooter>
