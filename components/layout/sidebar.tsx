@@ -7,12 +7,8 @@ import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 
-interface User {
-  name?: string | null;
-  email?: string;
-}
 interface SidebarProps {
-  user: User;
+  user: any;
 }
 
 export function Sidebar({ user }: SidebarProps) {

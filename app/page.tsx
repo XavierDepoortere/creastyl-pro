@@ -17,20 +17,6 @@ export default async function Home() {
           <h1 className="text-3xl font-bold tracking-tight">
             Bienvenue dans le système dadministration
           </h1>
-
-          {(user.role === "ADMIN" || user.role === "SUPERADMIN") && (
-            <div className="flex flex-col gap-4 mt-4">
-              <h2 className="text-xl font-semibold">Actions dadministration</h2>
-              <div className="flex gap-4 justify-center">
-                <Button asChild>
-                  <Link href="/admin/invitations">Gérer les invitations</Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link href="/admin/users">Gérer les utilisateurs</Link>
-                </Button>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
